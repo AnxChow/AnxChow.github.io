@@ -76,6 +76,17 @@ p{
   padding-top: 50px;
 }
 
+#photog-title{
+  padding-top: 100px;
+  text-align: center;
+  /* vertical-align: center; */
+}
+
+.pic{
+  width:750px;
+  height:500px;
+}
+
 section{
   padding-left: 250px;
   padding-right: 250px;
@@ -83,9 +94,18 @@ section{
   padding-bottom: 20px;
 }
 
-#experience{
+#experience, #africa, #misc{
   background-color: white;
 }
+
+#intro{
+  height:300px;
+}
+
+#blog-intro{
+  height:450px;
+}
+
 
 #footer{
   background-color: grey;

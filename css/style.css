@@ -1,0 +1,74 @@
+#ankitapic{
+  /* float:right; */
+  height: 475px;
+  width: auto;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+body {
+  background-color: #f7d08f;
+}
+
+a{
+  text-decoration:none;
+}
+
+a:hover{
+  height:15px;
+  width:auto;
+}
+
+.icon{
+  width:auto;
+  height: 25px;
+  padding: 2.5px;
+}
+
+.logo{
+  height: auto;
+  width: 150px;
+  padding-left: 50px;
+}
+
+.icon img:hover{
+  height:15px;
+  width:auto;
+}
+
+.section-header{
+  padding-top: 50px;
+  text-align: center;
+}
+
+h1{
+  font-family: 'AvenirNext-DemiBold';
+}
+h2{
+  font-family: 'AvenirNext-DemiBold';
+}
+h3{
+  font-family: 'AvenirNext-DemiBold';
+}
+p{
+  font-family:'Avenir Next';
+}
+
+#ankita-title{
+  padding-top: 50px;
+}
+
+section{
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#experience{
+  background-color: white;
+}
+
+#footer{
+  background-color: grey;
+}

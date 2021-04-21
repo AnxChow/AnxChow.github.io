@@ -82,17 +82,33 @@ p{
   /* vertical-align: center; */
 }
 
+.blog-title{
+  padding-top: 20px;
+  /* text-align: left; */
+  /* vertical-align: center; */
+}
+
+.blog-pic{
+  /* height:300px;
+  width:auto; */
+  width:100%;
+  height:auto;
+  padding-bottom: 10px;
+}
+
+.blog-desc{
+  padding-bottom: 20px;
+}
+
+p.blog-date{
+  font-style:italic;
+}
+
 .pic{
   width:750px;
   height:500px;
 }
 
-section{
-  padding-left: 250px;
-  padding-right: 250px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
 #experience, #africa, #misc{
   background-color: white;
@@ -102,10 +118,43 @@ section{
   height:300px;
 }
 
-#blog-intro{
-  height:450px;
+.blog-container{
+  width:500px;
+  height:auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
+.blog-body-title{
+  padding-top: 20px;
+  /* text-align: left; */
+  /* vertical-align: center; */
+  text-align: center;
+}
+
+.blog-body{
+  width:1000px;
+  height:auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.blog-body-pic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+section{
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 #footer{
   background-color: grey;

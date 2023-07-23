@@ -1,18 +1,47 @@
 #ankitapic{
   /* float:right; */
-  height: 600px;
-  width: auto;
-  padding-left: 50px;
+  height: auto;
+  width: 110%;
+  /* padding-left: 50px; */
+  padding-top: 10px;
+  /* display: inline-block; */
+  /* align-items: center; */
+}
+
+#pics{
+  /* display: inline-block; */
   padding-top: 50px;
 }
 
+.bullets{
+  width: 20px;
+  height: auto;
+}
+
+.interests{
+  padding-left: 130px;
+}
+
+#icons{
+  text-align: right;
+}
+
+#blurb{
+  padding-top: 100px;
+}
+
 body {
-  background-color: #f7d08f;
+  /* background-color: #f7d08f; */
+  background-color: white;
 }
 
 a{
   text-decoration:none;
 }
+
+/* #homepage{
+  display: flex;
+} */
 
 a.effect{
   color:black;
@@ -68,7 +97,7 @@ h2{
 h3{
   font-family: 'AvenirNext-DemiBold';
 }
-p{
+p, ul, i, b{
   font-family:'Avenir Next';
 }
 
@@ -80,6 +109,10 @@ p{
   padding-top: 100px;
   text-align: center;
   /* vertical-align: center; */
+}
+
+#leadership{
+  background-color: #f7d08f;
 }
 
 .blog-title{

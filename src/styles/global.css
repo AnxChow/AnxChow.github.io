@@ -1,0 +1,81 @@
+/* ---- palette: soft, papery, pastel ---- */
+:root {
+  --paper: #fbf9f4;
+  --ink: #37342e;
+  --muted: #918b7f;
+  --line: #e8e3d8;
+
+  --sage: #dde8d9;
+  --blue: #d9e4ee;
+  --blush: #f6e0da;
+  --butter: #f7ecd4;
+  --lavender: #e5dff0;
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Karla', -apple-system, 'Helvetica Neue', sans-serif;
+  --accent: 'Fredoka', var(--sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* always reserve scrollbar space so short/tall pages don't shift on nav */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--lavender);
+}
+
+/* soft gradient-highlight link — carried over from site v1 */
+a.effect {
+  text-decoration: none;
+  background-image: linear-gradient(120deg, var(--blue) 0%, var(--butter) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 42%;
+  background-position: 0 92%;
+  transition: background-size 0.25s ease-in;
+}
+
+a.effect:hover {
+  background-size: 100% 88%;
+}
+
+/* little rounded asides / labels */
+.hand {
+  font-family: var(--accent);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* a small star doodle, used as scattered decoration */
+.star {
+  position: absolute;
+  color: var(--ink);
+  opacity: 0.5;
+  pointer-events: none;
+}

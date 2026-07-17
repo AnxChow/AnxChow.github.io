@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ankita1 from '../assets/ankita1.JPG';
+import ankita2 from '../assets/ankita2.jpg';
+import ankita3 from '../assets/ankita3.JPEG';
+import ankita4 from '../assets/ankita4.jpg';
+
+const photos = [
+  { src: ankita1, tilt: '-2.2deg' },
+  { src: ankita2, tilt: '1.6deg' },
+  { src: ankita3, tilt: '1.8deg' },
+  { src: ankita4, tilt: '-1.4deg' },
+];
+---
+
+<Base title="ankita chowdhry" active="home">
+  <main>
+    <section class="hero">
+      <div class="intro">
+        <h1>hi, i'm ankita <span class="wave">👋</span></h1>
+        <p class="lede">
+          grew up in singapore, studied cs &amp; business, currently leading ai at
+          <a class="effect" href="https://www.payabli.com">payabli</a>
+        </p>
+        <p>
+          this website is more than a portfolio. i wanted a little space on the internet
+          to share my career journey, but more importantly, what i enjoy. inspired by
+          early 2000s web experiences, the site is designed to be explored through play.
+          enjoy, and pls reach out if anything resonates.
+        </p>
+      </div>
+
+      <div class="photos" aria-label="photos">
+        {photos.map(({ src, tilt }) => (
+          <figure class="polaroid" style={`--tilt: ${tilt}`}>
+            <Image src={src} alt="Ankita" width={480} widths={[320, 480, 720]} sizes="(max-width: 760px) 44vw, 240px" />
+          </figure>
+        ))}
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 1rem;
+  }
+
+  .hero {
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .intro {
+    flex: 1.2;
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: 2.7rem;
+    margin: 0 0 1rem;
+  }
+
+  .wave {
+    display: inline-block;
+    transform-origin: 70% 70%;
+  }
+
+  h1:hover .wave {
+    animation: wave 0.9s ease-in-out;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(18deg); }
+    50% { transform: rotate(-8deg); }
+    75% { transform: rotate(14deg); }
+  }
+
+  .lede {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    line-height: 1.4;
+    margin: 0 0 0.9rem;
+  }
+
+  /* photos as a loose polaroid pile */
+  .photos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem 1rem;
+    align-content: start;
+  }
+
+  .polaroid {
+    margin: 0;
+    padding: 8px 8px 22px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(60, 50, 30, 0.13);
+    transform: rotate(var(--tilt));
+    transition: transform 0.25s ease;
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .polaroid img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 760px) {
+    main {
+      padding-top: 3rem;
+    }
+
+    .hero {
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: stretch;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
+</style>

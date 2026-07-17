@@ -1,0 +1,139 @@
+---
+// Shared navigation. `bar` = the small icon pills in the top nav;
+// `launcher` = the bigger labelled icons used inline on the home page.
+interface Props {
+  variant?: 'bar' | 'launcher';
+  active?: string;
+}
+const { variant = 'bar', active } = Astro.props;
+
+const icons: Record<string, string> = {
+  home: `<path d="M4 11.5 12 4.5l8 7"/><path d="M6.5 10.5v8.5h11v-8.5"/><path d="M10 19v-4.5h4V19"/>`,
+  career: `<path d="M4 20c6 0 3-7 9-7s3-6.5 4-8" stroke-dasharray="2.6 2.6"/><path d="M17 5V2.5h4L19.5 4 21 5.5h-4"/>`,
+  books: `<path d="M12 6.5C10 4.8 7 4.5 4 5v13.5c3-.5 6-.2 8 1.5 2-1.7 5-2 8-1.5V5c-3-.5-6-.2-8 1.5Z"/><path d="M12 6.5V20"/>`,
+};
+
+const links = [
+  { href: '/', key: 'home', label: 'home' },
+  { href: '/career', key: 'career', label: 'career' },
+  { href: '/books', key: 'books', label: 'books' },
+];
+
+// the launcher invites you elsewhere, so drop the page you're already on
+const shown = variant === 'launcher' ? links.filter((l) => l.key !== active) : links;
+---
+
+{variant === 'bar' ? (
+  <div class="nav-links bar">
+    {shown.map((l) => (
+      <a
+        href={l.href}
+        class:list={['nl', l.key, { active: l.key === active }]}
+        data-label={l.label}
+        aria-label={l.label}
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <Fragment set:html={icons[l.key]} />
+        </svg>
+      </a>
+    ))}
+  </div>
+) : (
+  <div class="nav-links launcher">
+    {shown.map((l) => (
+      <a href={l.href} class:list={['launch', l.key]}>
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <Fragment set:html={icons[l.key]} />
+          </svg>
+        </span>
+        <span class="lbl">{l.label}</span>
+      </a>
+    ))}
+  </div>
+)}
+
+<style>
+  /* ---- bar (top nav) ---- */
+  .bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+  }
+
+  .nl {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: var(--ink);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .nl svg { width: 19px; height: 19px; }
+  .nl:hover { transform: translateY(-1px); }
+
+  .nl.home.active { background: var(--butter); }
+  .nl.career.active { background: var(--blue); }
+  .nl.books.active { background: var(--blush); }
+
+  .nl::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 100%;
+    font-family: var(--accent);
+    font-size: 0.9rem;
+    color: var(--muted);
+    opacity: 0;
+    transform: translateY(-3px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .nl:hover::after { opacity: 1; transform: translateY(1px); }
+
+  /* ---- launcher (inline on home) ---- */
+  .launcher {
+    display: flex;
+    gap: 1.4rem;
+    margin-top: 1.8rem;
+    flex-wrap: wrap;
+  }
+
+  .launch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .launch .ico {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    box-shadow: 0 3px 0 rgba(60, 50, 30, 0.1), 0 6px 14px rgba(60, 50, 30, 0.1);
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .launch.career .ico { background: var(--blue); }
+  .launch.books .ico { background: var(--blush); }
+  .launch .ico svg { width: 27px; height: 27px; }
+
+  .launch .lbl {
+    font-family: var(--accent);
+    font-size: 0.98rem;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  .launch:hover .ico { transform: translateY(-5px) rotate(-4deg); }
+  .launch:hover .lbl { color: var(--ink); }
+</style>

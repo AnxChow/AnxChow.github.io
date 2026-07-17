@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# personal docs — kept locally as source material, never published
+Ankita_Chowdhry_2026.pdf
+books_read_jul26.pdf
